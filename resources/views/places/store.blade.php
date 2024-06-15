@@ -7,21 +7,20 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1>観光スポット一覧</h1>
-        <form
-        action="{{ route('places.index') }}"
-        method="GET">
-            <label for="prefectures">都道府県:</label>
-            <select name="prefectures"
-            id="prefectures">
-                <option value="">すべて</option>
-                <option value="1">東京</option>
-                <option value="2">大阪</option>
-            </select>
-            <button type="submit">検索</button>
-        </form>
+        <!--<h1>観光スポット一覧</h1>-->
+        <!--<form-->
+        <!--action="{{ route('places.index') }}"-->
+        <!--method="GET">-->
+        <!--    <label for="prefectures">都道府県:</label>-->
+        <!--    <select name="prefectures"-->
+        <!--    id="prefectures">-->
+        <!--        <option value="">すべて</option>-->
+        <!--        <option value="1">東京</option>-->
+        <!--        <option value="2">大阪</option>-->
+        <!--    </select>-->
+        <!--    <button type="submit">検索</button>-->
+        <!--</form>-->
         <div class='places'>
-            <a href='create'>登録</a>
             <div class='places'>
             <ul>
                 @foreach($places as $place)

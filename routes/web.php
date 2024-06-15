@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlaceController;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,12 +29,14 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
-Route::get('/places', [PlaceController::class, 'index'])->name('places.index');
-
-
-
-
-
-
+Route::middleware('auth')->group(function () {
+    Route::get('/places/{place}',[PlaceController::class, 'show'])->name('places.show');
+    
+    Route::get('/places', [PlaceController::class, 'index'])->name('places.index');
+    
+    // Route::resource('places', PlaceController::class);
+    
+    Route::get('/create', [PlaceController::class, 'create'])->name('places.create');
+    Route::post('/store', [PlaceController::class, 'store'])->name('places.store');
+});
 require __DIR__.'/auth.php';

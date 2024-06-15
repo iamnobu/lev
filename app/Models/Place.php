@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Http\Controllers\PlaceController;
+use Illuminate\Http\Request;
 
 class Place extends Model
 {
@@ -33,4 +35,19 @@ class Place extends Model
     {
         return $this->belongsToMany(Accommodation::class);
     }
+    
+    // public function prefectures()
+    // {
+    //     return $this->hasMany(Prefecture::class);
+    // }
+    
+    protected $fillable = [
+        'name',
+        'access',
+        'price',
+        'opening_hour',
+        'discription',
+        'prefecture_id',
+        'user_id'
+    ];
 }
